@@ -11,7 +11,7 @@ Below are the rough steps needed to complete this assignment, with specific deta
 
 1. Fork the shared training repository to your GitHub account.
 2. Clone the repository to your preferred development environment.
-3. Create a script in **bash** or **python** in the `workshop_scripts` directory which decodes your chunk stored in the `encrypted_data` folder and outputs the decoded text into the `workshop_data` directory using the `[key].txt` format i.e. `2.txt`.
+3. Create a script in **bash** or **python** in the `workshop_scripts` directory which decodes your chunk stored in the `encrypted_data` folder and outputs the decoded text into the `workshop_data` directory using the `[key].txt` format i.e. `2.txt`. Note: use relative paths in your script, the absolute path will be different on everyone's machine.
 4. Commit the new script on your fork of the repository.
 5. Push the new commit to your fork on GitHub.
 6. Create pull request in the [StaPH-B/2026-amd-git-workshop](https://github.com/StaPH-B/2026-amd-git-workshop) on GitHub to merge changes from your fork into the shared training repository.
@@ -23,8 +23,7 @@ Below are the rough steps needed to complete this assignment, with specific deta
 
 ## Example Decryption function
 
-```
-python
+```python
 # Simple function to decrypt a string by shifting the ascii code by some value (key)
 def decrypt(encrypted_message:str, key:int) -> str:
     message = ""
