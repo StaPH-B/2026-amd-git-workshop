@@ -1,0 +1,1 @@
+Place your script here that decrypts the block of text with your key under the encrypted_data directory.

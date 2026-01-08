@@ -1,0 +1,69 @@
+name: Run challenge result
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  run-challenge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+
+      - name: Run workshop scripts
+        continue-on-error: true
+        run: |
+          if [ -d workshop_scripts ]; then
+            shopt -s nullglob
+            files=(workshop_scripts/*)
+            if [ ${#files[@]} -eq 0 ]; then
+              echo "No files found in workshop_scripts"
+            else
+              for f in "${files[@]}"; do
+                if [ -x "$f" ]; then
+                  echo "Running executable: $f"
+                  "$f"
+                else
+                  case "$f" in
+                    *.py)
+                      echo "Running python: $f"
+                      python "$f"
+                      ;;
+                    *.sh)
+                      echo "Running bash: $f"
+                      bash "$f"
+                      ;;
+                    *)
+                      echo "Skipping unknown/non-executable file: $f"
+                      ;;
+                  esac
+                fi
+              done
+            fi
+          else
+            echo "No workshop_scripts directory present"
+          fi
+        env:
+          CI: true
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; else pip install biopython; fi
+
+      - name: Run workshop test
+        run: python workshop_test.py workshop_data/*.txt
+        env:
+          CI: true
+
+      - name: Upload result.fasta as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: result.fasta
+          path: result.fasta

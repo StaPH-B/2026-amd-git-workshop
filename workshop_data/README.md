@@ -1,0 +1,1 @@
+Your script should output the decoded file here named < id >.txt i.e. `14.txt` or `6.txt`
