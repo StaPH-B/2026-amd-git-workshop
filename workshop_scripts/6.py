@@ -9,8 +9,8 @@ def decrypt(encrypted_message, key):
         message += chr((ord(char) - key) % 126)
     return message
 
-input_file = os.path.join("..", "encrypted_data", f"{Text_id}.txt")
-output_file = os.path.join("..", "workshop_data", f"{Text_id}.txt")
+input_file = os.path.join("encrypted_data", f"{Text_id}.txt")
+output_file = os.path.join("workshop_data", f"{Text_id}.txt")
 
 if os.path.exists(input_file):
     with open(input_file, 'r') as f:
