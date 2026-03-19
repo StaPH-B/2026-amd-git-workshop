@@ -19,7 +19,7 @@ def decrypt(encrypted_message: str, key: int) -> str:
 
 
 def main():
-   student_id = 19
+    student_id = 19
     infile  = f"encrypted_data/{student_id}.txt"
     outfile = f"workshop_data/{student_id}.txt"
 
