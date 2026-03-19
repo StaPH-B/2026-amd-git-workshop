@@ -1,8 +1,8 @@
 from pathlib import Path
 
 # relative paths from this script's location
-input_path = Path("../encrypted_data/15.txt")
-output_path = Path("../workshop_data/15.txt")
+input_path = Path("encrypted_data/15.txt")
+output_path = Path("workshop_data/15.txt")
 
 # read encrypted text
 encrypted_text = input_path.read_text(encoding="utf-8")
