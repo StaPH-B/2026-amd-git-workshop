@@ -7,8 +7,8 @@ def decrypt(encrypted_message:str, key:int) -> str:
         message += decrypted_char
     return message
 
-text_file= Path("../encrypted_data/1.txt")
-output_file= Path("../workshop_data/1.txt")
+text_file= Path("encrypted_data/1.txt")
+output_file= Path("workshop_data/1.txt")
 
 encrypted_text = text_file.read_text(encoding="utf-8")
 
