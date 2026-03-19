@@ -1,7 +1,7 @@
 key = 23
   
-input_file = "../encrypted_data/23.txt"
-output_file = "../workshop_data/23.txt"
+input_file = "encrypted_data/23.txt"
+output_file = "workshop_data/23.txt"
 
 def decrypt(text, key):
     result = ""
