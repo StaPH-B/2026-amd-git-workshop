@@ -1,6 +1,6 @@
 # relative paths from this script's location
-input_path = "../encrypted_data/26.txt"
-output_path = "../workshop_data/26.txt"
+input_path = "encrypted_data/26.txt"
+output_path = "workshop_data/26.txt"
 
 # read encrypted text
 with open(input_path, "r", encoding="utf-8") as f:
