@@ -18,8 +18,8 @@ def get_relative_path(my_path:str):
 
 
 def main():
-    in_path = get_relative_path("../encrypted_data")
-    out_path = get_relative_path("../workshop_data")
+    in_path = get_relative_path("encrypted_data")
+    out_path = get_relative_path("workshop_data")
 
     encrypted_file = open(in_path, "r")
 
